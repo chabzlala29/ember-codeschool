@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.min.js"></script>
+    <script src="bower_components/ember/ember.js"></script>
+    <!--<script src="bower_components/ember-data/ember-data.min.js"></script>-->
+    <script src="app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  </head>
+
+  <body>
+    <script type="text/x-handlebars" data-template-name="application">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Flint & Flame</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <div class='container'>
+        {{outlet}}
+      </div>
+      <footer class='container'>
+        2015 The Flint & Flame
+      </footer>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="index">
+      <h1>Welcome to the Flint & Flame!</h1>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="about">
+      <h1>About The Fire Spirits</h1>
+    </script>
+  </body>
+</html>
