@@ -1,0 +1,31 @@
+{ "products": [
+  {
+    "id": 1,
+    "title": 'Apple',
+    "price": 99,
+    "description": 'Apple is Love',
+    "isOnSale": true,
+    "image": 'images/apple.jpeg',
+    "reviews": [100,101]
+  },
+  {
+    "id": 2,
+    "title": 'Gear',
+    "price": 75,
+    "description": 'Gears',
+    "isOnSale": true,
+    "image": 'images/gear.jpeg'
+  },
+  {
+    "id": 3,
+    "title": 'Shoe',
+    "price": 125,
+    "description": 'Shoe',
+    "isOnSale": true,
+    "image": 'images/shoe.jpeg'
+  }],
+  "reviews": [
+    { "id": 100, "product": 1, "text": 'Started bla bla bla.'},
+    { "id": 101, "product": 1, "text": 'Another Review.'}
+  ]
+}
