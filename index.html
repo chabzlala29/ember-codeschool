@@ -8,6 +8,7 @@
     <script src="app.js"></script>
 
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
 
   <body>
@@ -28,8 +29,12 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">About</a></li>
+              <li>
+                {{#link-to 'index'}}Home{{/link-to}}
+              </li>
+              <li>
+                {{#link-to 'about'}}About{{/link-to}}
+              </li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -45,6 +50,9 @@
 
     <script type="text/x-handlebars" data-template-name="index">
       <h1>Welcome to the Flint & Flame!</h1>
+      <p>There are {{productsCount}} products</p>
+      <img {{ bind-attr src='logo'}} alt='Logo' />
+      <p>Rendered on {{time}}</p>
     </script>
 
     <script type="text/x-handlebars" data-template-name="about">
