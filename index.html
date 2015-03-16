@@ -82,7 +82,20 @@
         <h2>{{title}}</h2> 
         <p class='product-description'>{{description}}</p>
         <p><button class='btn btn-success'>Buy for ${{price}}</button></p>
+        <h3>Reviews</h3>
+        <ul>
+          {{#each reviews}} 
+            <li>{{text}}</li>
+          {{else}}
+            <li>
+              <p class='text-muted'>
+                <em>No reviews yet. Be the first to write one!</em>
+              </p>
+            </li>
+          {{/each}}
+        </ul>
       </div>
+
     </script>
 
     <script type="text/x-handlebars" data-template-name="products/index">

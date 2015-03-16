@@ -2,9 +2,13 @@ var App = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
 
+// Set Adapter
+
 App.Store = DS.Store.extend({
   adapter: DS.FixtureAdapter.create()
 })
+
+// Router
 App.Router.map(function(){
   this.route('about');
   this.resource('products', function(){
@@ -12,13 +16,24 @@ App.Router.map(function(){
   });
 });
 
+// Models
+
 App.Product = DS.Model.extend({
   title: DS.attr('string'),
   price: DS.attr('number'),
   description: DS.attr('string'),
   isOnSale: DS.attr('number'),
-  image: DS.attr('string')
+  image: DS.attr('string'),
+  reviews: DS.hasMany('review', { async: true })
 });
+
+App.Review = DS.Model.extend({
+  text: DS.attr('string'),
+  reviewedAt: DS.attr('date'),
+  product: DS.belongsTo('product')
+});
+
+// Data Fixtures
 
 App.Product.reopenClass({
   FIXTURES: [
@@ -28,7 +43,8 @@ App.Product.reopenClass({
       price: 99,
       description: 'Apple is Love',
       isOnSale: true,
-      image: 'images/apple.jpeg'
+      image: 'images/apple.jpeg',
+      reviews: [100,101]
     },
     {
       id: 2,
@@ -47,16 +63,24 @@ App.Product.reopenClass({
       image: 'images/shoe.jpeg'
     }
   ]
-
 })
 
-App.IndexController = Ember.Controller.extend({
-  productsCount: 6,
-  logo: 'images/download.jpeg',
-  time: function(){
-    return(new Date()).toDateString()
-  }.property()
-});
+App.Review.reopenClass({
+  FIXTURES: [
+    {
+      id: 100,
+      product: 1,
+      text: 'Review Test 1'
+    },
+    {
+      id: 101,
+      product: 1,
+      text: 'Review Test 2'
+    }
+  ]
+})
+
+// Route Handlers
 
 App.ProductsRoute = Ember.Route.extend({
   model: function(){
@@ -69,3 +93,14 @@ App.ProductRoute = Ember.Route.extend({
     return this.store.find('product', params.product_id);
   }
 });
+
+// Controllers
+
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6,
+  logo: 'images/download.jpeg',
+  time: function(){
+    return(new Date()).toDateString()
+  }.property()
+});
+
