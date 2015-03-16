@@ -52,5 +52,3 @@ App.ProductRoute = Ember.Route.extend({
     return App.PRODUCTS.findBy('title', params.title);
   }
 });
-
-App.Product = DS.Model.extend({});
